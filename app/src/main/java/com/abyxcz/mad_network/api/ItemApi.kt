@@ -8,8 +8,6 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface ItemApi {
-
-    //////GET////////
     @GET("api/get/item")
     suspend fun getItem(): Response<JsonObject>
 
@@ -19,5 +17,10 @@ interface ItemApi {
     @POST("api/login")
     suspend fun postLogin(
         @Body request: LoginRequest
+    ): Response<JsonObject>
+
+    @POST("api/item")
+    suspend fun postItem(
+        @Body request: ItemRequest
     ): Response<JsonObject>
 }
