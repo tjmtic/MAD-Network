@@ -1,5 +1,6 @@
 package com.abyxcz.mad_network.di
 
+import com.abyxcz.mad_network.api.ItemApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,6 +35,12 @@ object NetworkModule {
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideItemApi(retrofit: Retrofit): ItemApi {
+        return retrofit.create(ItemApi::class.java)
     }
 
 }
